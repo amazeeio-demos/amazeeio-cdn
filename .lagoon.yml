@@ -20,12 +20,12 @@ tasks:
         command: drush -y updb
         service: cli
     - run:
-        name: drush cr
-        command: drush -y cr
+        name: Clear caches!
+        command: drush -y cr && drush fastly:purge:all
         service: cli
     - run:
         name: Warm all the caches!
-        command: drush xmlsitemap:rebuild && drush warmer:enqueue cdn,sitemap --run-queue
+        command:  drush xmlsitemap:rebuild && drush warmer:enqueue cdn,sitemap --run-queue
         service: cli
 
 environments:
