@@ -1,0 +1,11 @@
+site_id: u0pb5wlx
+api_key: II0_8umhu3ur2kVXFc3jy-EjUYWxe5Hi
+service_id: 2rDBzDYI4AsjIkZPsAdvlN
+error_maintenance: ''
+stale_while_revalidate: true
+stale_while_revalidate_value: 604800
+stale_if_error: true
+stale_if_error_value: 604800
+purge_method: soft
+purge_logging: false
+cache_tag_hash_length: 4

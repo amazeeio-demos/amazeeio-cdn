@@ -1,4 +1,4 @@
-name: drupal9-example-simple
+name: amazeeio-cdn
 recipe: lagoon
 config:
   flavor: drupal

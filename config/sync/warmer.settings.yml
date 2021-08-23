@@ -1,0 +1,30 @@
+warmers:
+  cdn:
+    id: cdn
+    frequency: '60'
+    batchSize: '50'
+    urls:
+      - /
+    headers:
+      - 'x-drupal-warmer: true'
+    verify: 1
+    maxConcurrentRequests: '10'
+  sitemap:
+    id: sitemap
+    frequency: '60'
+    batchSize: '200'
+    sitemaps:
+      - 'https://cdn-demo.amazee.io/en/sitemap.xml'
+      - 'https://cdn-demo.amazee.io/es/sitemap.xml'
+    minPriority: '0'
+    headers:
+      - 'x-drupal-warmer: true'
+    verify: 1
+    maxConcurrentRequests: '10'
+  entity:
+    id: entity
+    frequency: 300
+    batchSize: 50
+    entity_types: {  }
+_core:
+  default_config_hash: wLhhL58IKPWkAbhxcI6gpCna7d431Q7kM0y-Om92BUQ

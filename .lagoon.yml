@@ -1,6 +1,6 @@
 docker-compose-yaml: docker-compose.yml
 
-project: drupal9-example-simple
+project: amazeeio-cdn
 
 tasks:
 #   pre-rollout:
@@ -11,10 +11,10 @@ tasks:
 
   post-rollout:
     # Enable once config sync has been setup.
-    # - run:
-    #     name: drush cim
-    #     command: drush -y cim
-    #     service: cli
+    - run:
+        name: drush cim
+        command: drush -y cim
+        service: cli
     - run:
         name: drush updb
         command: drush -y updb
@@ -23,10 +23,23 @@ tasks:
         name: drush cr
         command: drush -y cr
         service: cli
-
-
+    - run:
+        name: Warm all the caches!
+        command: drush xmlsitemap:rebuild && drush warmer:enqueue cdn,sitemap --run-queue
+        service: cli
 
 environments:
+  master:
+    routes:
+      - nginx:
+        - "cdn-demo.amazee.io":
+            tls-acme: 'true'
+            insecure: Redirect
+    cronjobs:
+      - name: drush cron
+        schedule: "*/5 * * * *"
+        command: drush cron
+        service: cli
   9.x:
     # routes:
     cronjobs:

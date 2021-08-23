@@ -1,0 +1,8 @@
+uuid: 8e2e5b67-6582-49a8-a58c-f9a84302eb14
+langcode: en
+status: true
+dependencies: {  }
+id: g3XYqcXbSKPVBDODwnT6pq7oqhCFkPryj4vVqrl_Kfc
+label: 'https://cdn-demo.amazee.io/en'
+context:
+  language: en
